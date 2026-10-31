@@ -1,8 +1,11 @@
 %{?!python3_pkgversion:%global python3_pkgversion 3}
+%global commit 6b903a2d8efe8610c916356c28edd2397ecb2443
+%global shortcommit %(c=%{commit}; echo ${c:0:8})
+%global snapdate 20261026
 
 
 Name:           culendar
-Version:        0.20251111^20261026git6b903a2d
+Version:        0.20251111^%{snapdate}git%{shortcommit}
 Release:        1%{?dist}
 Summary:        Culendar is a CUrses CaLENDAR: CLI Agenda in Python
 License:        WTFPL
@@ -33,7 +36,7 @@ Deals with caldavs
 
 
 %prep
-%autosetup -p1 -n %{name}
+%autosetup -p1 -n %{name}-%{commit}
 
 
 %build
